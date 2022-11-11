@@ -1,35 +1,27 @@
-//   Обробка відправлення форми form.login - form повинна відбуватися відповідно до
-// події submit.
-// Під час відправлення форми сторінка не повинна перезавантажуватися.
-// Якщо у формі є незаповнені поля, виводь alert з попередженням про те, що всі поля
-// повинні бути заповнені.
-// Якщо користувач заповнив усі поля і відправив форму, збери значення полів в об'єкт,
-//  де ім'я поля буде ім'ям властивості, а значення поля - значенням властивості.Для
-//  доступу до елементів форми використовуй властивість elements.
 // Виведи об'єкт із введеними даними в консоль і очисти значення полів форми методом
 // reset.
-const refs = {
-  formEl : document.querySelector('.login-form'),
-  emailEl: document.querySelector('[type="email"]'),
-  passwordEl: document.querySelector('[type="password"]'),
-  buttonEl: document.querySelector('[type="submit"]'),
-};
 
-// refs.emailEl.addEventListener('input', onPutEmail);
-// refs.passwordEl.addEventListener('input', onPutPassword);
-// refs.buttonEl.addEventListener('submit', onSubmitBtn);
+const formEl = document.querySelector('.login-form');
+const inputs = document.querySelectorAll('input');
 
-refs.formEl.addEventListener('submit', onFormSubmit)
+formEl.addEventListener('submit', onFormSubmit)
 
-function onFormSubmit(event) {
-  event.preventDefault();
-  const formData = new FormData(event.currentTarget);
+function onFormSubmit(events) {
+  events.preventDefault();
+  const formData = new FormData(events.currentTarget);
   formData.forEach((value, name) => {
-    console.log(`${name} - ${value}`); 
-  })
+    console.log(`${name} - ${value}`);
+  });
+
+  inputs.forEach(input => {
+    if (input.value.trim() === '') {
+      alert("Заповніть, будь ласка, всі поля")
+    }
+  });
+  // document.form[0].reset();
+ document.getElement(".login-form").reset();
 };
 
-function onSuccess(formNode) {
-  alert('Ваша заявка отправлена!')
-  formNode.classList.toggle('hidden')
-}
+
+
+
