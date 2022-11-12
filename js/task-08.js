@@ -14,9 +14,13 @@ function onFormSubmit(events) {
     } else {
       const formData = new FormData(events.currentTarget);
       formData.forEach((value, name) => {
-        console.log(`${name} - ${value}`);
+        console.log({
+          [name]: value,
+          [name]: value,
+        });
       });
     }
   });
   refs.formEl.reset();
 }
+
