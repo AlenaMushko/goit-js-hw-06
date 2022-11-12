@@ -29,7 +29,7 @@ function createBoxes(amount) {
     // boxesEl.style.width = size + 'px';
     // boxesEl.style.height = size + 'px';
     // boxesEl.style.backgroundColor = getRandomHexColor();
-    boxesEl.style.cssText = `width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()} `;
+    boxesEl.style.cssText = `width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}; margin-left: auto;  margin-right: auto; `;
     fragment.appendChild(boxesEl);
   }
   refs.maimBoxeEl.appendChild(fragment);
