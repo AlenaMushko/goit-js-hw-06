@@ -35,8 +35,6 @@ function createBoxes(amount) {
     fragment.appendChild(boxesEl);
   }
   refs.maimBoxeEl.appendChild(fragment);
-  refs.maimBoxeEl.firstChild.textContent = event.currentTarget.value;
-  console.log(event.currentTarget.value);
 }
 
 function destroyBoxes() {
