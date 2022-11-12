@@ -9,10 +9,12 @@ let amount = 0;
 
 refs.buttonCreateBoxEl.addEventListener("click", createBoxes);
 refs.buttonDestroyBoxEl.addEventListener("click", destroyBoxes);
-refs.inputNumberEl.addEventListener("blur", (event) => {
+refs.inputNumberEl.addEventListener("blur", onQvontityBoxes);
+
+function onQvontityBoxes(event) {
   amount = event.currentTarget.value;
   createBoxes(amount);
-});
+}
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -29,10 +31,12 @@ function createBoxes(amount) {
     // boxesEl.style.width = size + 'px';
     // boxesEl.style.height = size + 'px';
     // boxesEl.style.backgroundColor = getRandomHexColor();
-    boxesEl.style.cssText = `width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}; margin-left: auto;  margin-right: auto; `;
+    boxesEl.style.cssText = `width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}; margin-left: auto;  margin-right: auto; text-align: center`;
     fragment.appendChild(boxesEl);
   }
   refs.maimBoxeEl.appendChild(fragment);
+  refs.maimBoxeEl.firstChild.textContent = event.currentTarget.value;
+  console.log(event.currentTarget.value);
 }
 
 function destroyBoxes() {

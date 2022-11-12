@@ -2,11 +2,9 @@ const refs = {
   formEl: document.querySelector(".login-form"),
   inputs: document.querySelectorAll("input"),
   formBtnEl: document.querySelector("button"),
-}
-
+};
 
 refs.formEl.addEventListener("submit", onFormSubmit);
-
 
 function onFormSubmit(events) {
   events.preventDefault();
@@ -17,12 +15,8 @@ function onFormSubmit(events) {
       const formData = new FormData(events.currentTarget);
       formData.forEach((value, name) => {
         console.log(`${name} - ${value}`);
-        refs.formEl.reset();
       });
     }
   });
+  refs.formEl.reset();
 }
-
-// && formBtnEl.addEventListener('keypress', events => { })
-
-
